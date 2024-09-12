@@ -1,0 +1,214 @@
+<h1>Cotação</h1>
+<ol style="display: inline-flex; gap: 1rem">
+    <li>Tipo de vigência</li>
+    <li>Coberturas e Assistências</li>
+    <li>Condição Comercial</li>
+    <li>Simulador</li>
+    <li>Faturamento da apólice</li>
+    <li>Informações e dados</li>
+</ol>
+
+<ul
+    style="list-style: none; margin: 0; display: inline-flex; flex-direction: row; justify-content: space-around; background-color: #f1f1f1; width: 100%; padding-top: .8rem; padding-bottom: .8rem;">
+    <li>
+        <p class="p4">Tipo de Apólice</p>
+        <p class="p7">Seguro Allianz</p>
+    </li>
+    <li>
+        <p class="p4">Número da cotação</p>
+        <p class="p7">28937400</p>
+    </li>
+    <li>
+        <p class="p4">Número da operação</p>
+        <p class="p7">311170947</p>
+    </li>
+    <li>
+        <p class="p4">Número da proposta</p>
+        <p class="p7">311170947</p>
+    </li>
+</ul>
+
+<form clrForm clrLayout="vertical" [formGroup]="formCoverStepOne">
+
+    <h4 class="title-1">Dados do segurado</h4>
+    <div class="clr-row">
+        <div class="clr-col-6">
+            <label class="clr-required-mark p4">CPF/CNPJ do segurado</label>
+            <input class="clr-input" formControlName="docSegurado" />
+        </div>
+        <div class="clr-col-6">
+            <label class="clr-required-mark p4">Nome completo do segurado / Razão Social</label>
+            <input class="clr-input" formControlName="nomeSegurado" />
+        </div>
+    </div>
+    <h4 class="title-1">Vigência</h4>
+    <div class="clr-row">
+        <div class="clr-col-6">
+            <clr-date-container>
+                <label class="clr-required-mark p4" for="input-init-vigencia">Início da vigência da apólice mãe</label>
+                <input type="date" id="input-init-vigencia" clrDate formControlName="initVigencia" />
+            </clr-date-container>
+        </div>
+        <div class="clr-col-6">
+            <clr-date-container>
+                <label class="clr-required-mark p4">Fim da vigência da apólice mãe</label>
+                <input type="date" autocomplete="off" clrDate formControlName="endVigencia" tabindex="-1" [ngClass]="{'disabled-class' : true}"/>
+            </clr-date-container>
+        </div>
+    </div>
+    <div class="clr-row">
+        <div class="clr-col">
+            <label class="clr-required-mark p4">Selecione o tipo de vigência para os itens da apólice</label>
+        </div>
+        <div class="clr-break-row"></div>
+        <div class="clr-col">
+            <div class="radio  btn">
+                <input type="radio" name="btn-vigencia-radio" id="btn-vigencia-radio-1">
+                <label for="btn-vigencia-radio-1">Mensal</label>
+            </div>
+            <div class="radio  btn">
+                <input type="radio" name="btn-vigencia-radio" id="btn-vigencia-radio-2">
+                <label for="btn-vigencia-radio-2">Anual</label>
+            </div>
+            <div class="radio  btn">
+                <input type="radio" name="btn-vigencia-radio" id="btn-vigencia-radio-3">
+                <label for="btn-vigencia-radio-3">Pro-Rata</label>
+            </div>
+        </div>
+    </div>
+    <h4 class="title-1">Editar condição comercial</h4>
+    <div class="clr-row">
+        <div class="clr-col">
+            <label class="p4">Desc CAP (%)</label>
+            <input class="clr-input" />
+        </div>
+        <div class="clr-col">
+            <label class="p4">Comissão (%)</label>
+            <input class="clr-input" />
+        </div>
+        <div class="clr-col">
+            <label class="p4">Agravo (%)</label>
+            <input class="clr-input" />
+        </div>
+        <div class="clr-col">
+            <label class="p4">Pró-labore (%)</label>
+            <input class="clr-input" />
+        </div>
+    </div>
+    <div class="clr-row">
+        <div class="clr-col">
+            <label class="clr-required-mark p4">Incluir Co-corretagem?</label>
+        </div>
+        <div class="clr-break-row"></div>
+        <div class="clr-col">
+            <div class="radio  btn">
+                <input type="radio" name="btn-corretagem-radio" id="btn-corretagem-radio-1">
+                <label for="btn-corretagem-radio-1">Sim</label>
+            </div>
+            <div class="radio  btn">
+                <input type="radio" name="btn-corretagem-radio" id="btn-corretagem-radio-2">
+                <label for="btn-corretagem-radio-2">Não</label>
+            </div>
+        </div>
+    </div>
+    <ng-container formArrayName="coBrokerage">
+        <div class="clr-row" *ngFor="let control of formArrayBrokerage?.controls; let i = index" [formGroupName]="i">
+            <div class="clr-col-2">
+                <label class="p4 clr-required-mark" for="input-brokerage-mediador-{{i}}">Código do mediador</label>
+                <input class="clr-input" id="input-brokerage-mediador-{{i}}" formControlName="mediatorCode" />
+            </div>
+            <div class="clr-col">
+                <label class="p4" for="input-brokerage-corretor-{{i}}">Nome Corretor</label>
+                <input class="clr-input" id="input-brokerage-corretor-{{i}}" formControlName="brokerName" tabindex="-1" [ngClass]="{'disabled-class' : true}"/>
+            </div>
+            <div class="clr-col-2">
+                <label class="p4 clr-required-mark" for="input-brokerage-participacao-{{i}}">Participação (%)</label>
+                <input class="clr-input" id="input-brokerage-participacao-{{i}}" formControlName="participation" />
+            </div>
+            <div class="clr-col-2" *ngIf="i !== 0; else template">
+                <button class="btn btn-link" (click)="onRemoveRowBrokerage(i)">Remover</button>
+            </div>
+            <ng-template #template>
+                <div class="clr-col-2"></div>
+            </ng-template>
+        </div>
+    </ng-container>
+    <div class="clr-row">
+        <div class="clr-col">
+            <button class="btn btn-link" (click)="onAddBrokerage()" [disabled]="!formArrayBrokerage.valid">Incluir outra co-corretagem</button>
+        </div>
+    </div>
+    <h4 class="title-1">Assistência 24h</h4>
+    <div class="clr-row">
+        <div class="clr-col">
+            <label class="clr-required-mark p4">Qual assistência poderá ser contratada no item?</label>
+        </div>
+        <div class="clr-break-row"></div>
+        <div class="clr-col">
+            <div class="checkbox  btn">
+                <input type="checkbox" id="btn-assistencia-checkbox-1">
+                <label for="btn-assistencia-checkbox-1">Essencial</label>
+            </div>
+            <div class="checkbox  btn">
+                <input type="checkbox" id="btn-assistencia-checkbox-2">
+                <label for="btn-assistencia-checkbox-2">Completo</label>
+            </div>
+        </div>
+    </div>
+    <h4 class="title-1">Limites fixos e/ou variáveis</h4>
+    <table class="table table-noborder">
+        <thead>
+            <tr>
+                <th class="p4 left">Coberturas</th>
+                <th class="p4 left">Tipo</th>
+                <th class="p4 left">Limite Mínimo de Indenização</th>
+                <th class="p4 left">Limite Máximo de Indenização</th>
+                <th class="p4 left">Percentual (%)</th>
+                <th class="p4 left">Tipo de contratação</th>
+            </tr>
+        </thead>
+        <tbody formArrayName="covers">
+            <tr *ngFor="let cobertura of arrCovers?.controls; let i = index" [formGroupName]="i">
+                <td class="left">
+                    <div class="clr-checkbox-wrapper">
+                        <input clrcheckbox="" name="test2" type="checkbox" id="clr-form-control-{{i}}"
+                            formControlName="checked" />
+                        <label class="clr-control-label"
+                            for="clr-form-control-{{i}}">{{cobertura.get('name')?.value}}</label>
+                    </div>
+                </td>
+                <td class="left" *ngIf="cobertura.get('checked')?.value">
+                    <div class="clr-select-wrapper">
+                        <select id="select-basic-{{i}}" class="clr-select" formControlName="type">
+                            <option value="1">Limite máximo</option>
+                            <option value="2">Valor fixo</option>
+                        </select>
+                    </div>
+                </td>
+                <td class="left" *ngIf="cobertura.get('checked')?.value">
+                    <input class="clr-input" formControlName="minCompLimit" />
+                </td>
+                <td class="left" *ngIf="cobertura.get('checked')?.value">
+                    <input class="clr-input" formControlName="maxCompLimit" />
+                </td>
+                <td class="left" *ngIf="cobertura.get('checked')?.value">
+                    <input class="clr-input" formControlName="percentage" />
+                </td>
+                <td class="left" *ngIf="cobertura.get('checked')?.value">
+                    <div class="clr-select-wrapper">
+                        <select id="select-type-contract-{{i}}" class="clr-select" formControlName="typeContract">
+                            <option value="1">Obrigatório</option>
+                            <option value="2">Opcional</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="clr-row clr-justify-content-end">
+        <div class="clr-col-2">
+            <button class="btn btn-primary" type="submit">Simular agora</button>
+        </div>
+    </div>
+
+</form>

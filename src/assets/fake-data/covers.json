@@ -1,0 +1,90 @@
+[
+    {
+        "coverId": 501,
+        "description": "Básica (Incêndio, Queda de Raio, Explosão, Fumaça e Queda de Aeronaves)"
+    },
+    {
+        "coverId": 687,
+        "description": "Danos Elétricos ou Curto-Circuitos"
+    },
+    {
+        "coverId": 784,
+        "description": "Engenharia em Obras de Construção e Reforma"
+    },
+    {
+        "coverId": 974,
+        "description": "Plano de Saúde Individual - Apartamento"
+    },
+    {
+        "coverId": 889,
+        "description": "Seguro Fiança Locatícia ou Aluguel"
+    },
+    {
+        "coverId": 720,
+        "description": "Equipamentos Portáteis"
+    },
+    {
+        "coverId": 977,
+        "description": "Odontológico"
+    },
+    {
+        "coverId": 655,
+        "description": "Luminosos e Letreiros"
+    },
+    {
+        "coverId": 721,
+        "description": "Equipamentos Eletrônicos"
+    },
+    {
+        "coverId": 756,
+        "description": "Incêndio, Queda de Raio e Explosão"
+    },
+    {
+        "coverId": 991,
+        "description": "Residencial - Incêndio, Implosão e Explosão"
+    },
+    {
+        "coverId": 671,
+        "description": "Bens de Terceiros na Empresa"
+    },
+    {
+        "coverId": 869,
+        "description": "Vendaval, Furacão, Ciclone, Tornado e Granizo"
+    },
+    {
+        "coverId": 701,
+        "description": "Despesas Fixas"
+    },
+    {
+        "coverId": 856,
+        "description": "Roubo de Valores na Empresa"
+    },
+    {
+        "coverId": 682,
+        "description": "Danos a Documentos de Clientes"
+    },
+    {
+        "coverId": 808,
+        "description": "Quebra de Vidros, Mármores e Granitos"
+    },
+    {
+        "coverId": 653,
+        "description": "Alagamento e Inundação"
+    },
+    {
+        "coverId": 691,
+        "description": "Desmoronamento"
+    },
+    {
+        "coverId": 748,
+        "description": "Guarda de Veículos e Serviços de Manobrista"
+    },
+    {
+        "coverId": 753,
+        "description": "Honorários de Peritos Contadores"
+    },
+    {
+        "coverId": 995,
+        "description": "Transportes Nacional"
+    }
+]

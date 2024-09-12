@@ -9,6 +9,35 @@
         <clr-dg-cell>{{user.name}}</clr-dg-cell>
         <clr-dg-cell>{{user.createdAt | date}}</clr-dg-cell>
     </clr-dg-row>
-    
-    <clr-dg-footer>{{users.length}} users</clr-dg-footer>
+
+    <clr-dg-footer *ngIf="users">{{users.length}} users</clr-dg-footer>
+</clr-datagrid>
+<hr>
+
+<button class="btn btn-primary" (click)="onAddUser()">Adicionar</button>
+<clr-datagrid>
+    <clr-dg-column>User ID</clr-dg-column>
+    <clr-dg-column>Name</clr-dg-column>
+    <clr-dg-column>Creation date</clr-dg-column>
+    <clr-dg-column></clr-dg-column>
+
+    <clr-dg-row *ngFor="let controls of formUsers?.controls; let i = index">
+        <ng-container [formGroup]="getFormGroup(i)">
+            <clr-dg-cell style="align-content: center;">
+                <label class="clr-control-label">{{controls.controls['id'].value}}</label>
+            </clr-dg-cell>
+            <!-- <clr-dg-cell><input class="clr-input" [formControlName]="'id'"></clr-dg-cell> -->
+            <clr-dg-cell style="align-content: center;">
+                <input class="clr-input" type="text" [formControlName]="'name'">
+            </clr-dg-cell>
+            <clr-dg-cell style="align-content: center;">
+                <input class="clr-input" type="text" [formControlName]="'createdAt'">
+            </clr-dg-cell>
+            <clr-dg-cell style="align-content: center;">
+                <button class="btn btn-link">Delete</button>
+            </clr-dg-cell>
+        </ng-container>
+    </clr-dg-row>
+
+    <clr-dg-footer *ngIf="formUsers?.controls">{{formUsers.controls.length}} users</clr-dg-footer>
 </clr-datagrid>

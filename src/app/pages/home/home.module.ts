@@ -5,6 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { ClarityModule } from '@clr/angular';
 import { HomeService } from './home.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,6 +15,8 @@ import { HomeService } from './home.service';
   imports: [
     CommonModule,
     HomeRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
     ClarityModule
   ],
   providers:[HomeService]

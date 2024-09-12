@@ -1,0 +1,24 @@
+.p4, 
+.p7 {
+    margin-top: 0 !important;
+}
+
+.title-1{
+    color: hsl(198, 100%, 34%); 
+    font-weight: 800; 
+    font-size: 16px; 
+    line-height: 24.84px; 
+}
+
+.clr-select-wrapper,
+.clr-select,
+.clr-control-container,
+.clr-input-wrapper,
+.clr-input {
+    width: 100% !important;
+}
+
+.disabled-class {
+    pointer-events: none;
+    opacity: 0.7;
+  }
